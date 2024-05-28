@@ -84,6 +84,7 @@ public class Mariadb_1 {
 			String sle = "select * from onepiece where 해적단 = '밀집모자'";
 			ps = conn.prepareStatement(sle);
 			ResultSet rs = ps.executeQuery();
+			
 			while(rs.next()) {
 				int 번호 = rs.getInt("번호");
 				String 해적단 = rs.getString("해적단");
