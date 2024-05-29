@@ -11,8 +11,7 @@ public class Study01 {
 		
 		new Study01_1(드라이버,주소,사용자,비밀번호);
 		
-			//우리가 만든 DTO를 배열에 담을려면 Array가 필요
-			//우리가 만든 Class는 List에 담는다
+	
 		
 		
 		
