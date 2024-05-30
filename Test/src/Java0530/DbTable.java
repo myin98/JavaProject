@@ -8,10 +8,17 @@ public class DbTable {
 	private String 성별;
 	private String 해적단;
 	private String 역할;
+	
 	// 테이블 정의서를 보고 필드(변수)를 선언하시오.
+	
+	
+	
+	
+	
 	public int get번호() {
 		return 번호;
 	}
+	
 	public void set번호(int 번호) {
 		this.번호 = 번호;
 	}

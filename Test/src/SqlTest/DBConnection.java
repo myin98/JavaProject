@@ -1,4 +1,4 @@
-package Java0530;
+package SqlTest;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,8 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
-
 
 public class DBConnection {
 
@@ -47,21 +45,15 @@ public class DBConnection {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			while(rs.next()){
-
-				
 				data = new DbTable();
-				data.set번호(rs.getInt("번호"));
-				data.set이름(rs.getString("이름"));
-				data.set성별(rs.getString("성별"));
-				data.set특징(rs.getString("특징"));
-				data.set해적단(rs.getString("해적단"));
-				data.set역할(rs.getString("역할"));
-		
-				list.add(data);
-				
+
+				data.setNo(rs.getInt("no"));
+				data.setEmail(rs.getString("email"));
+				data.setPassword(rs.getString("password"));
+				data.setDelYn(rs.getBoolean("delYn"));
 				// 데이터를 매핑하시오.
 
-				
+				list.add(data);
 			}
 			rs.close();
 			pstmt.close();
@@ -74,14 +66,12 @@ public class DBConnection {
 	public boolean 데이터입력하기(Connection conn, String sql, DbTable data) {
 		try {
 			pstmt = conn.prepareStatement(sql);
-			
-			pstmt.setInt(1, data.get번호());
-			pstmt.setString(2, data.get이름());
-			pstmt.setString(3, data.get성별());
-			pstmt.setString(4, data.get특징());
-			pstmt.setString(5, data.get해적단());
-			pstmt.setString(6, data.get역할());
 
+			pstmt.setInt(1,data.getNo());
+			pstmt.setString(2, data.getEmail());
+			pstmt.setString(3, data.getPassword());
+			pstmt.setBoolean(4, data.isDelYn());
+			
 			
 			// 데이터를 매핑하시오.
 
@@ -99,14 +89,12 @@ public class DBConnection {
 		try {
 			pstmt = conn.prepareStatement(sql);
 
-			System.out.println("\n" + "\t" +  "버기 역할 수정 : 선장 > 사황 " + "\n");
-			
-			pstmt.setInt(2, data.get번호());
-			pstmt.setString(1, data.get역할());
-
-			
 			// 데이터를 매핑하시오.
-
+			pstmt.setInt(3, data.getNo());
+			pstmt.setString(1, data.getEmail());
+			pstmt.setString(2, data.getPassword());
+			
+			
 			int state = pstmt.executeUpdate();
 			pstmt.close();
 			conn.commit();
@@ -121,10 +109,8 @@ public class DBConnection {
 	public boolean 데이터삭제하기(Connection conn, String sql, DbTable data) {
 		try {
 			pstmt = conn.prepareStatement(sql);
-
-			System.out.println("\n" + "\t" + " 번호 10번 삭제 " + "\n");
 			
-			pstmt.setInt(1, data.get번호());
+			pstmt.setInt(1, data.getNo());
 			// 데이터를 매핑하시오.
 
 			int state = pstmt.executeUpdate();
