@@ -89,6 +89,9 @@ public class DBConnection {
 		try {
 			pstmt = conn.prepareStatement(sql);
 
+			
+			System.out.println("\n" + "\t" +  "화이슬@이메일.컴 > 신총맨@이메일.컴" + 
+							"\n" +"\t" +"password:qazx > password:qwas"+ "\n");
 			// 데이터를 매핑하시오.
 			pstmt.setInt(3, data.getNo());
 			pstmt.setString(1, data.getEmail());
@@ -109,6 +112,8 @@ public class DBConnection {
 	public boolean 데이터삭제하기(Connection conn, String sql, DbTable data) {
 		try {
 			pstmt = conn.prepareStatement(sql);
+			
+			System.out.println("\n" + "\t" + " Number 5 Delete " + "\n");
 			
 			pstmt.setInt(1, data.getNo());
 			// 데이터를 매핑하시오.

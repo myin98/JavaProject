@@ -64,7 +64,7 @@ public class AppController {
 	private void 추가하기(Connection conn) {
 		sql = "insert into 명단 value (?,?,?,?)";
 		System.out.println("SQL문 확인 : " + sql);
-		//한셋트 여기부터
+		//한셋트 
 		DbTable data = new DbTable();
 		
 		data.setNo(5);
