@@ -19,10 +19,10 @@ public class Main {
 			
 			
 		}
-			//for(int c = t) {
+			for(int c : t) {
 				
-				//System.out.println(c);
-			//}
+				System.out.println(c);
+			}
 				
 		
 			
