@@ -262,25 +262,25 @@ public class AppController {
 					boolean key = true;
 					while(key) {
 						System.out.println("어떤 기능을 실행하시겠습니까?(C입력/R읽기/U수정/D삭제/E종료");
-						switch (scan.nextLine()) {
+						switch ( scan.nextLine().toUpperCase() ) { //toUpperCase -> 대문자로 변경
 							case "C": 
-							case "c":
+							//case "c":
 								입력하기(conn);
 								break;
 							case "R": 
-							case "r":
+							//case "r":
 								가져오기(conn);
 								break;
 							case "U": 
-							case "u":
+							//case "u":
 								수정하기(conn);
 								break;
 							case "D": 
-							case "d":
+							//case "d":
 								삭제하기(conn);
 								break;
 							case "E": 
-							case "e":
+							//case "e":
 								key = false;
 								break;
 							default:
